@@ -13,6 +13,7 @@ namespace Tarea_Granja_Semana3.Scripts
         List<Interfaz_planta> plantas;
         List<Interfaz_animales> animales;
         List<Consumibles> consumibles;
+        List<Venta> VentaPendiente;
 
         int money = 100;
         int slots = 5;
@@ -248,6 +249,26 @@ namespace Tarea_Granja_Semana3.Scripts
         }
         private void Vender()
         {
+            Console.WriteLine("Inventario para ventas");
+
+            if (consumibles.Count == 0)
+            {
+                Console.WriteLine("Inventario vacio");
+                Console.ReadKey();
+                return;
+            }
+            Console.WriteLine("Elige el producto a vender:");
+            int choice = int.Parse(Console.ReadLine()) - 1;
+
+            if (choice < 0 || choice >= consumibles.Count)
+            { return; }
+
+            Console.WriteLine($"¿cuanto planeas deseas vender?");
+            int amount = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Producto puesto en venta");
+            Console.ReadKey();
         }
     }
+    
 }
